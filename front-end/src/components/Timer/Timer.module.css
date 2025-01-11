@@ -1,0 +1,26 @@
+.section {
+    display: inline-block;
+    margin: 0 auto;
+    background: var(--color-white);
+    border-radius: 8px;
+    border: solid 3px var(--color-dark);
+    text-align: center;
+    padding: 0 48px;
+}
+
+.title {
+    display: block;
+    margin: 12px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.time {
+    display: block;
+    margin: 12px 0;
+    font-size: 1.5rem;
+}

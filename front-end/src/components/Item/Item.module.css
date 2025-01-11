@@ -1,0 +1,57 @@
+.item {
+    border-radius: 8px;
+    margin: 12px 24px;
+    padding: 12px 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.word {
+    font-weight: 500;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.word strong {
+    font-size: 16px;
+}
+
+.item:hover {
+    background-color: var(--color-secondary);
+}
+
+.item:hover .button,
+.button:focus-visible {
+    opacity: 1;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.button {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-dark);
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s background-color, 0.3s opacity;
+    font-size: 1rem;
+    line-height: 1rem;
+    opacity: 0;
+}
+
+.button:hover {
+    background-color: var(--color-primary);
+}

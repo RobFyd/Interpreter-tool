@@ -1,0 +1,11 @@
+.button {
+    background-color: transparent;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.active {
+    border-bottom: solid 2px var(--color-dark);
+    font-weight: 600;
+}

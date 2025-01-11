@@ -1,0 +1,22 @@
+:root {
+    --color-bg: #004643;
+    --color-white: #fffffe;
+    --color-dark: #001e1d;
+    --color-primary: #f9bc60;
+    --color-secondary: #abd1c6;
+    --color-error: #c0392b;
+    --color-border: #e5e7eb;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(var(--color-secondary), var(--color-white));
+    font-family: Helvetica, sans-serif;
+    padding: 72px 24px;
+    min-height: 100vh;
+}

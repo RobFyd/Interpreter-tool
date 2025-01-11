@@ -1,0 +1,16 @@
+.section {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 8px 0 12px;
+    background: var(--color-white);
+    border-radius: 8px;
+    border: solid 1px var(--color-border);
+    width: 100%;
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+    margin: 0 24px;
+    margin-top: 16px;
+}

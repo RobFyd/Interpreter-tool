@@ -1,0 +1,9 @@
+.error {
+    position: fixed;
+    top: 12px;
+    background-color: var(--color-error);
+    color: var(--color-white);
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: solid 2px var(--color-white);
+}

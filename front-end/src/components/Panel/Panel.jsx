@@ -10,7 +10,11 @@ export function Panel() {
     <>
       <Button
         onClick={() => {
-          fetch("https://localhost:3000/words");
+          fetch("http://localhost:3000/words").then((response) =>
+            response.json().then((response) => {
+              setData(response);
+            })
+          );
         }}
       >
         Załaduje dane

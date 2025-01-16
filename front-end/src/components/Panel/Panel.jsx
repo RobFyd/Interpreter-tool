@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { List } from "../List/List";
+import { Form } from "../Form/Form";
 import styles from "./Panel.module.css";
 
 export function Panel() {
@@ -22,7 +23,8 @@ export function Panel() {
   return (
     <>
       <section className={styles.section}>
-        <List data={data}></List>
+        <Form />
+        <List data={data} />
       </section>
     </>
   );

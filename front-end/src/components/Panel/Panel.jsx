@@ -16,6 +16,10 @@ export function Panel() {
       });
   }, []);
 
+  function handleFormSubmit(formData) {
+    console.log(formData);
+  }
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -23,7 +27,7 @@ export function Panel() {
   return (
     <>
       <section className={styles.section}>
-        <Form />
+        <Form onFormSubmit={handleFormSubmit} />
         <List data={data} />
       </section>
     </>

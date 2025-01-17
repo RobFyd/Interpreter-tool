@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Form.module.css";
 import { Button } from "../Button/Button";
 
-export function Form() {
+export function Form({ onFormSubmit }) {
   const [word, setWord] = useState("");
   const [translation, setTranslation] = useState("");
   const [category, setCategory] = useState("noun");
@@ -15,7 +15,7 @@ export function Form() {
       category,
     };
 
-    alert(JSON.stringify(newItem));
+    onFormSubmit(newItem);
   }
 
   return (

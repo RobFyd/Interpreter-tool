@@ -33,6 +33,8 @@ export function Panel() {
   function handleDeleteItem(id) {
     fetch(`http://localhost:3000/words/${id}`, {
       method: "DELETE",
+    }).then(() => {
+      setData((prevData) => prevData.filter((item) => item.id !== id));
     });
   }
 

@@ -1,18 +1,6 @@
 {
   "words": [
     {
-      "id": 1,
-      "word": "kot",
-      "translation": "cat",
-      "category": "noun"
-    },
-    {
-      "id": 2,
-      "word": "pies",
-      "translation": "dog",
-      "category": "noun"
-    },
-    {
       "id": 3,
       "word": "skakać",
       "translation": "jump",
@@ -35,12 +23,6 @@
       "translation": "umbrella",
       "category": "noun",
       "id": 6
-    },
-    {
-      "word": "samochod",
-      "translation": "car",
-      "category": "noun",
-      "id": 8
     },
     {
       "word": "piłka",

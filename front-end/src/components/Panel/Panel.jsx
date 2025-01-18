@@ -6,6 +6,7 @@ import styles from "./Panel.module.css";
 export function Panel() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:3000/words")
@@ -42,7 +43,7 @@ export function Panel() {
         }
       })
       .catch((error) => {
-        alert(error.message);
+        setError(error.message);
       });
   }
 
@@ -52,6 +53,7 @@ export function Panel() {
 
   return (
     <>
+      {error && <span>{error}</span>}
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
         <List data={data} onDeleteItem={handleDeleteItem} />

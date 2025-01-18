@@ -30,6 +30,10 @@ export function Panel() {
       });
   }
 
+  function handleDeleteItem(id) {
+    console.log("deleted word", id);
+  }
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -38,7 +42,7 @@ export function Panel() {
     <>
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
-        <List data={data} />
+        <List data={data} onDeleteItem={handleDeleteItem} />
       </section>
     </>
   );

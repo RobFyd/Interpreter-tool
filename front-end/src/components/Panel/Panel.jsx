@@ -31,7 +31,9 @@ export function Panel() {
   }
 
   function handleDeleteItem(id) {
-    console.log("deleted word", id);
+    fetch(`http://localhost:3000/words/${id}`, {
+      method: "DELETE",
+    });
   }
 
   if (isLoading) {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { List } from "../List/List";
 import { Form } from "../Form/Form";
+import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import styles from "./Panel.module.css";
 
 export function Panel() {
@@ -53,7 +54,7 @@ export function Panel() {
 
   return (
     <>
-      {error && <span>{error}</span>}
+      {error && <ErrorMessage>{error}</ErrorMessage>}
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
         <List data={data} onDeleteItem={handleDeleteItem} />

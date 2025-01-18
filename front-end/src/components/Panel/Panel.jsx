@@ -23,7 +23,11 @@ export function Panel() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    });
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        setData((prevData) => [...prevData, response]);
+      });
   }
 
   if (isLoading) {

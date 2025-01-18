@@ -47,6 +47,18 @@
       "translation": "car",
       "category": "noun",
       "id": 8
+    },
+    {
+      "word": "piłka",
+      "translation": "ball",
+      "category": "noun",
+      "id": 9
+    },
+    {
+      "word": "mysz",
+      "translation": "mouse",
+      "category": "noun",
+      "id": 10
     }
   ]
 }

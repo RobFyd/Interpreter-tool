@@ -35,6 +35,18 @@
       "translation": "umbrella",
       "category": "noun",
       "id": 6
+    },
+    {
+      "word": "spiewac",
+      "translation": "sing",
+      "category": "verb",
+      "id": 7
+    },
+    {
+      "word": "samochod",
+      "translation": "car",
+      "category": "noun",
+      "id": 8
     }
   ]
 }

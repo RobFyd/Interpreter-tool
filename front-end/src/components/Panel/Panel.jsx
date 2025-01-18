@@ -33,9 +33,17 @@ export function Panel() {
   function handleDeleteItem(id) {
     fetch(`http://localhost:3000/words/${id}`, {
       method: "DELETE",
-    }).then(() => {
-      setData((prevData) => prevData.filter((item) => item.id !== id));
-    });
+    })
+      .then((response) => {
+        if (response.ok) {
+          setData((prevData) => prevData.filter((item) => item.id !== id));
+        } else {
+          throw new Error("Failed to delete item");
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   }
 
   if (isLoading) {

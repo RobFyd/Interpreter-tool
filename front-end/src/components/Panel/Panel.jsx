@@ -45,6 +45,9 @@ export function Panel() {
       })
       .catch((error) => {
         setError(error.message);
+        setTimeout(() => {
+          setError(null);
+        }, 4000);
       });
   }
 

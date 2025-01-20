@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { List } from "../List/List";
 import { Form } from "../Form/Form";
 import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
+import { FilterButton } from "../FilterButton/FilterButton";
 import styles from "./Panel.module.css";
 
 export function Panel() {
@@ -60,6 +61,11 @@ export function Panel() {
       {error && <ErrorMessage>{error}</ErrorMessage>}
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
+        <div className={styles.filters}>
+          <FilterButton>All words</FilterButton>
+          <FilterButton>Nouns</FilterButton>
+          <FilterButton>Verbs</FilterButton>
+        </div>
         <List data={data} onDeleteItem={handleDeleteItem} />
       </section>
     </>

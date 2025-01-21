@@ -53,9 +53,9 @@ export function Panel() {
   }
 
   function handleFilterClick(category) {
-    fetch(`http://localhost:3000/words?category=${category}`, {
-      method: "GET",
-    }).then((response) => response.json());
+    fetch(`http://localhost:3000/words?category=${category}`)
+      .then((response) => response.json())
+      .then((response) => setData(response));
   }
 
   if (isLoading) {
@@ -69,8 +69,12 @@ export function Panel() {
         <Form onFormSubmit={handleFormSubmit} />
         <div className={styles.filters}>
           <FilterButton>All words</FilterButton>
-          <FilterButton onClick={handleFilterClick("noun")}>Nouns</FilterButton>
-          <FilterButton onClick={handleFilterClick("verb")}>Verbs</FilterButton>
+          <FilterButton onClick={() => handleFilterClick("noun")}>
+            Nouns
+          </FilterButton>
+          <FilterButton onClick={() => handleFilterClick("verb")}>
+            Verbs
+          </FilterButton>
         </div>
         <List data={data} onDeleteItem={handleDeleteItem} />
       </section>

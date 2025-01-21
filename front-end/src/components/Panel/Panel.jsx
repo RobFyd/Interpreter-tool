@@ -9,6 +9,7 @@ export function Panel() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:3000/words")
@@ -57,6 +58,7 @@ export function Panel() {
     fetch(`http://localhost:3000/words${params}`)
       .then((response) => response.json())
       .then((response) => setData(response));
+    setSelectedCategory(category);
   }
 
   if (isLoading) {
@@ -69,13 +71,22 @@ export function Panel() {
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
         <div className={styles.filters}>
-          <FilterButton onClick={() => handleFilterClick(null)}>
+          <FilterButton
+            active={selectedCategory === null}
+            onClick={() => handleFilterClick(null)}
+          >
             All words
           </FilterButton>
-          <FilterButton onClick={() => handleFilterClick("noun")}>
+          <FilterButton
+            active={selectedCategory === "noun"}
+            onClick={() => handleFilterClick("noun")}
+          >
             Nouns
           </FilterButton>
-          <FilterButton onClick={() => handleFilterClick("verb")}>
+          <FilterButton
+            active={selectedCategory === "verb"}
+            onClick={() => handleFilterClick("verb")}
+          >
             Verbs
           </FilterButton>
         </div>

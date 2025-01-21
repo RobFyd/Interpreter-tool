@@ -53,7 +53,8 @@ export function Panel() {
   }
 
   function handleFilterClick(category) {
-    fetch(`http://localhost:3000/words?category=${category}`)
+    const params = category ? `?category=${category}` : "";
+    fetch(`http://localhost:3000/words${params}`)
       .then((response) => response.json())
       .then((response) => setData(response));
   }
@@ -68,7 +69,9 @@ export function Panel() {
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
         <div className={styles.filters}>
-          <FilterButton>All words</FilterButton>
+          <FilterButton onClick={() => handleFilterClick(null)}>
+            All words
+          </FilterButton>
           <FilterButton onClick={() => handleFilterClick("noun")}>
             Nouns
           </FilterButton>

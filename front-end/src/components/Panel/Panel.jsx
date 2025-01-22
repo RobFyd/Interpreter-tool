@@ -24,7 +24,7 @@ export function Panel() {
   }, [selectedCategory]);
 
   function handleFormSubmit(formData) {
-    fetch("http://localhost:3000/words", {
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,12 +33,14 @@ export function Panel() {
     })
       .then((response) => response.json())
       .then((response) => {
-        setData((prevData) => [...prevData, response]);
+        if (!selectedCategory || selectedCategory === response.category) {
+          setData((prevData) => [...prevData, response]);
+        }
       });
   }
 
   function handleDeleteItem(id) {
-    fetch(`http://localhost:3000/words/${id}`, {
+    fetch(`${url}/${id}`, {
       method: "DELETE",
     })
       .then((response) => {

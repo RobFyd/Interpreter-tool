@@ -1,22 +1,28 @@
 {
   "words": [
     {
-      "word": "spiewac",
-      "translation": "sing",
-      "category": "verb",
-      "id": 4
-    },
-    {
       "word": "piłka",
       "translation": "ball",
       "category": "noun",
       "id": 5
     },
     {
+      "word": "spiewac",
+      "translation": "sing",
+      "category": "verb",
+      "id": 6
+    },
+    {
       "word": "rekin",
       "translation": "shark",
       "category": "noun",
       "id": 7
+    },
+    {
+      "word": "dom",
+      "translation": "house",
+      "category": "noun",
+      "id": 8
     }
   ]
 }

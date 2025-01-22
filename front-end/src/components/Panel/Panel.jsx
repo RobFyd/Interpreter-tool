@@ -5,6 +5,8 @@ import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import { FilterButton } from "../FilterButton/FilterButton";
 import styles from "./Panel.module.css";
 
+const url = "http://localhost:3000/words";
+
 export function Panel() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +15,7 @@ export function Panel() {
 
   useEffect(() => {
     const params = selectedCategory ? `?category=${selectedCategory}` : "";
-    fetch(`http://localhost:3000/words${params}`)
+    fetch(`${url}${params}`)
       .then((response) => response.json())
       .then((response) => {
         setData(response);

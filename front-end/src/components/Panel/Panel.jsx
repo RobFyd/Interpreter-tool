@@ -23,6 +23,10 @@ export function Panel() {
       });
   }, [selectedCategory]);
 
+  setTimeout(() => {
+    alert("ALERT"), 3000;
+  });
+
   function handleFormSubmit(formData) {
     fetch(url, {
       method: "POST",

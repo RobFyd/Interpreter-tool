@@ -28,15 +28,6 @@ export function Panel() {
     };
   }, [selectedCategory]);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => alert("Welcome to the Word Bank!"), 3000);
-
-    return () => {
-      clearTimeout(timeout);
-      // console.log(`Cleanup! alert`);
-    };
-  }, []);
-
   function handleFormSubmit(formData) {
     fetch(url, {
       method: "POST",

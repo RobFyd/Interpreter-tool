@@ -32,7 +32,7 @@ export function Form({ onFormSubmit }) {
           />
         </div>
         <div className={styles.cell}>
-          <label htmlFor="translation">Translation</label>
+          <label htmlFor="translation">English Translation</label>
           <input
             type="text"
             id="translation"

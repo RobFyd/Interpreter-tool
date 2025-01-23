@@ -33,7 +33,7 @@ export function Panel() {
 
     return () => {
       clearTimeout(timeout);
-      console.log(`Cleanup! alert`);
+      // console.log(`Cleanup! alert`);
     };
   }, []);
 

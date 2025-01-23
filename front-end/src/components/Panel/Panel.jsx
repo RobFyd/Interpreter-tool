@@ -23,9 +23,10 @@ export function Panel() {
       });
   }, [selectedCategory]);
 
-  setTimeout(() => {
-    alert("ALERT"), 3000;
-  });
+  useEffect(
+    () => setTimeout(() => alert("Welcome to the Word Bank!"), 3000),
+    []
+  );
 
   function handleFormSubmit(formData) {
     fetch(url, {

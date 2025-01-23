@@ -21,12 +21,16 @@ export function Panel() {
         setData(response);
         setIsLoading(false);
       });
+    console.log(`Effect! selectedCategory: ${selectedCategory}`);
+
+    return () => {
+      console.log(`Cleanup! selectedCategory: ${selectedCategory}`);
+    };
   }, [selectedCategory]);
 
-  useEffect(
-    () => setTimeout(() => alert("Welcome to the Word Bank!"), 3000),
-    []
-  );
+  useEffect(() => {
+    setTimeout(() => alert("Welcome to the Word Bank!"), 3000);
+  }, []);
 
   function handleFormSubmit(formData) {
     fetch(url, {

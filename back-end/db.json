@@ -23,6 +23,12 @@
       "translation": "house",
       "category": "noun",
       "id": 8
+    },
+    {
+      "word": "parasol",
+      "translation": "umbrella",
+      "category": "noun",
+      "id": 9
     }
   ]
 }

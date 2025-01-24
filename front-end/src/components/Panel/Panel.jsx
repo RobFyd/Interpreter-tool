@@ -14,17 +14,19 @@ export function Panel() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
+    let isCanceled = false;
     const params = selectedCategory ? `?category=${selectedCategory}` : "";
     fetch(`${url}${params}`)
       .then((response) => response.json())
       .then((response) => {
-        setData(response);
-        setIsLoading(false);
+        if (!isCanceled) {
+          setData(response);
+          setIsLoading(false);
+        }
       });
-    console.log(`Effect! selectedCategory: ${selectedCategory}`);
 
     return () => {
-      console.log(`Cleanup! selectedCategory: ${selectedCategory}`);
+      isCanceled = true;
     };
   }, [selectedCategory]);
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { List } from "../List/List";
 import { Form } from "../Form/Form";
 import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
@@ -32,7 +32,10 @@ export function Panel() {
     };
   }, [selectedCategory]);
 
-  const categoryInfo = getCategoryInfo(selectedCategory);
+  const categoryInfo = useMemo(
+    () => getCategoryInfo(selectedCategory),
+    [selectedCategory]
+  );
 
   function handleFormSubmit(formData) {
     fetch(url, {

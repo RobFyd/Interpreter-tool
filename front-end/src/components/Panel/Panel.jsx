@@ -4,6 +4,7 @@ import { Form } from "../Form/Form";
 import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import { FilterButton } from "../FilterButton/FilterButton";
 import { getCategoryInfo } from "../../utils/getCategoryInfo";
+import { Info } from "../info/info";
 import styles from "./Panel.module.css";
 
 const url = "http://localhost:3000/words";
@@ -79,8 +80,8 @@ export function Panel() {
   return (
     <>
       {error && <ErrorMessage>{error}</ErrorMessage>}
-      {categoryInfo}
       <section className={styles.section}>
+        <Info>{categoryInfo}</Info>
         <Form onFormSubmit={handleFormSubmit} />
         <div className={styles.filters}>
           <FilterButton

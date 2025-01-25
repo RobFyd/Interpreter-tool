@@ -3,6 +3,7 @@ import { List } from "../List/List";
 import { Form } from "../Form/Form";
 import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import { FilterButton } from "../FilterButton/FilterButton";
+import { getCategoryInfo } from "../../utils/getCategoryInfo";
 import styles from "./Panel.module.css";
 
 const url = "http://localhost:3000/words";
@@ -29,6 +30,8 @@ export function Panel() {
       isCanceled = true;
     };
   }, [selectedCategory]);
+
+  const categoryInfo = getCategoryInfo(selectedCategory);
 
   function handleFormSubmit(formData) {
     fetch(url, {
@@ -76,6 +79,7 @@ export function Panel() {
   return (
     <>
       {error && <ErrorMessage>{error}</ErrorMessage>}
+      {categoryInfo}
       <section className={styles.section}>
         <Form onFormSubmit={handleFormSubmit} />
         <div className={styles.filters}>

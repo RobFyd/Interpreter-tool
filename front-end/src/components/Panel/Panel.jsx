@@ -7,7 +7,7 @@ import { getCategoryInfo } from "../../utils/getCategoryInfo";
 import { Info } from "../info/info";
 import styles from "./Panel.module.css";
 
-const url = "http://localhost:3000/words";
+const url = "http://localhost:3000/words1";
 
 export function Panel() {
   const [data, setData] = useState([]);
@@ -19,12 +19,25 @@ export function Panel() {
     let isCanceled = false;
     const params = selectedCategory ? `?category=${selectedCategory}` : "";
     fetch(`${url}${params}`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+
+        throw new Error("Failed to fetch data");
+      })
       .then((response) => {
         if (!isCanceled) {
           setData(response);
           setIsLoading(false);
         }
+      })
+      .catch((error) => {
+        setError(error.message);
+        setTimeout(() => {
+          setError(null);
+        }, 4000);
+        setIsLoading(false);
       });
 
     return () => {

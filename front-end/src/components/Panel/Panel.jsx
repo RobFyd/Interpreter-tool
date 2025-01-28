@@ -33,10 +33,7 @@ export function Panel() {
         }
       })
       .catch((error) => {
-        setError(error.message);
-        setTimeout(() => {
-          setError(null);
-        }, 4000);
+        handleError(error);
         setIsLoading(false);
       });
 
@@ -49,6 +46,13 @@ export function Panel() {
     () => getCategoryInfo(selectedCategory),
     [selectedCategory]
   );
+
+  function handleError(error) {
+    setError(error.message);
+    setTimeout(() => {
+      setError(null);
+    }, 4000);
+  }
 
   function handleFormSubmit(formData) {
     fetch(url, {
@@ -78,10 +82,7 @@ export function Panel() {
         }
       })
       .catch((error) => {
-        setError(error.message);
-        setTimeout(() => {
-          setError(null);
-        }, 4000);
+        handleError(error);
       });
   }
 

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState, useCallback } from "react";
 import styles from "./App.module.css";
 import { Panel } from "./components/Panel/Panel";
 import { Button } from "./components/Button/Button";
@@ -8,15 +8,12 @@ function App() {
   const [isPanelShown, setIsPanelShown] = useState(true);
   const [error, setError] = useState(null);
 
-  const handleError = useMemo(
-    () => (error) => {
-      setError(error.message);
-      setTimeout(() => {
-        setError(null);
-      }, 2000);
-    },
-    []
-  );
+  const handleError = useCallback((error) => {
+    setError(error.message);
+    setTimeout(() => {
+      setError(null);
+    }, 2000);
+  }, []);
 
   return (
     <main className={styles.main}>

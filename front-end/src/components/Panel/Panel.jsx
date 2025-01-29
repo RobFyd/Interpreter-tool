@@ -6,7 +6,7 @@ import { getCategoryInfo } from "../../utils/getCategoryInfo";
 import { Info } from "../info/info";
 import styles from "./Panel.module.css";
 
-const url = "http://localhost:3000/words1";
+const url = "http://localhost:3000/words";
 
 export function Panel({ onError }) {
   const [data, setData] = useState([]);

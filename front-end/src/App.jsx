@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import styles from "./App.module.css";
 import { Panel } from "./components/Panel/Panel";
 import { Button } from "./components/Button/Button";
+import { SubPage } from "./components/SubPage/SubPage";
 import { ErrorMessage } from "./components/ErrorMessage/ErrorMessage";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         {isPanelShown ? "Hide panel" : "Show panel"}
       </Button>
       {isPanelShown && <Panel onError={handleError} />}
+      <SubPage />
     </main>
   );
 }

@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { List } from "../List/List";
 import { Form } from "../Form/Form";
-import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import { FilterButton } from "../FilterButton/FilterButton";
 import { getCategoryInfo } from "../../utils/getCategoryInfo";
 import { Info } from "../info/info";
@@ -9,10 +8,10 @@ import styles from "./Panel.module.css";
 
 const url = "http://localhost:3000/words1";
 
-export function Panel() {
+export function Panel({ onError }) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
@@ -32,27 +31,17 @@ export function Panel() {
           setIsLoading(false);
         }
       })
-      .catch((error) => {
-        handleError(error);
-        setIsLoading(false);
-      });
+      .catch(onError);
 
     return () => {
       isCanceled = true;
     };
-  }, [selectedCategory]);
+  }, [selectedCategory, onError]);
 
   const categoryInfo = useMemo(
     () => getCategoryInfo(selectedCategory),
     [selectedCategory]
   );
-
-  function handleError(error) {
-    setError(error.message);
-    setTimeout(() => {
-      setError(null);
-    }, 4000);
-  }
 
   function handleFormSubmit(formData) {
     fetch(url, {
@@ -81,9 +70,7 @@ export function Panel() {
           throw new Error("Failed to delete item");
         }
       })
-      .catch((error) => {
-        handleError(error);
-      });
+      .catch(onError);
   }
 
   function handleFilterClick(category) {
@@ -96,7 +83,6 @@ export function Panel() {
 
   return (
     <>
-      {error && <ErrorMessage>{error}</ErrorMessage>}
       <section className={styles.section}>
         <Info>{categoryInfo}</Info>
         <Form onFormSubmit={handleFormSubmit} />

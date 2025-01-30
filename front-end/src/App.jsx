@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import styles from "./App.module.css";
 import { Panel } from "./components/Panel/Panel";
 import { Button } from "./components/Button/Button";
@@ -16,6 +16,8 @@ function App() {
     }, 2000);
   }, []);
 
+  const subPage = useMemo(() => <SubPage />, []);
+
   return (
     <main className={styles.main}>
       {error && <ErrorMessage>{error}</ErrorMessage>}
@@ -27,7 +29,7 @@ function App() {
         {isPanelShown ? "Hide panel" : "Show panel"}
       </Button>
       {isPanelShown && <Panel onError={handleError} />}
-      <SubPage />
+      {subPage}
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import styles from "./SubPage.module.css";
 
 export function SubPage() {
+  console.log("SubPage rendered");
   return (
     <section className={styles.section}>
       <p>

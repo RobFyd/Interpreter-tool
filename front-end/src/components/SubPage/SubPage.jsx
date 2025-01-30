@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./SubPage.module.css";
 
 export function SubPage() {
@@ -42,3 +43,5 @@ export function SubPage() {
     </section>
   );
 }
+
+export const SubPageMemo = memo(SubPage);

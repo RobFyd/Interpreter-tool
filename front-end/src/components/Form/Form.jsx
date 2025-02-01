@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./Form.module.css";
 import { Button } from "../Button/Button";
 
 export function Form({ onFormSubmit }) {
-  const [word, setWord] = useState("");
+  // const [word, setWord] = useState("");
   const [translation, setTranslation] = useState("");
   const [category, setCategory] = useState("noun");
+  const wordInputRef = useRef(null);
 
   function handleSubmit(e) {
+    console.log(wordInputRef);
     e.preventDefault();
     const newItem = {
-      word,
+      word: wordInputRef.current.value,
       translation,
       category,
     };
@@ -27,8 +29,9 @@ export function Form({ onFormSubmit }) {
             type="text"
             id="word"
             className={styles.input}
-            value={word}
-            onChange={(e) => setWord(e.target.value)}
+            ref={wordInputRef}
+            // value={word}
+            // onChange={(e) => setWord(e.target.value)}
           />
         </div>
         <div className={styles.cell}>

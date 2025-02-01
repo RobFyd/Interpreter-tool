@@ -29,6 +29,12 @@
       "translation": "umbrella",
       "category": "noun",
       "id": 9
+    },
+    {
+      "word": "samochod",
+      "translation": "car",
+      "category": "noun",
+      "id": 10
     }
   ]
 }

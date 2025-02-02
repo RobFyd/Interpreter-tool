@@ -4,6 +4,7 @@ import { Panel } from "./components/Panel/Panel";
 import { Button } from "./components/Button/Button";
 import { SubPageMemo } from "./components/SubPage/SubPage";
 import { ErrorMessage } from "./components/ErrorMessage/ErrorMessage";
+import { Timer } from "./components/Timer/Timer";
 
 function App() {
   const [isPanelShown, setIsPanelShown] = useState(true);
@@ -28,6 +29,7 @@ function App() {
       </Button>
       {isPanelShown && <Panel onError={handleError} />}
       <SubPageMemo />
+      <Timer />
     </main>
   );
 }

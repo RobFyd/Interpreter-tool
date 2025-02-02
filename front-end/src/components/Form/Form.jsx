@@ -1,6 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, forwardRef } from "react";
 import styles from "./Form.module.css";
 import { Button } from "../Button/Button";
+
+const Input = forwardRef(function Input(props, ref) {
+  return <input ref={ref} type="text" id="word" className={styles.input} />;
+});
 
 export function Form({ onFormSubmit }) {
   // const [word, setWord] = useState("");
@@ -25,11 +29,11 @@ export function Form({ onFormSubmit }) {
       <div className={styles.row}>
         <div className={styles.cell}>
           <label htmlFor="word">Polish Word</label>
-          <input
+          <Input
+            ref={wordInputRef}
             type="text"
             id="word"
             className={styles.input}
-            ref={wordInputRef}
             // value={word}
             // onChange={(e) => setWord(e.target.value)}
           />
